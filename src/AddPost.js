@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
+
+import uniqid from "uniqid";
 export default function AddPost() {
   const [title, settitle] = useState("");
   const [imageurl, setimageurl] = useState("");
@@ -10,6 +11,7 @@ export default function AddPost() {
       title: title,
       imageurl: imageurl,
       description: description,
+      postid: uniqid(),
     };
     console.log(post);
   }
