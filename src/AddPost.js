@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import axios from "axios";
 import uniqid from "uniqid";
 export default function AddPost() {
   const [title, settitle] = useState("");
@@ -13,7 +13,12 @@ export default function AddPost() {
       description: description,
       postid: uniqid(),
     };
-    console.log(post);
+    
+    axios.post('/api/post/addnewpost',post).then(res=>{
+      alert(res.data)
+    }).then(err=>{
+      console.log(err)
+    })
   }
   return (
     <div className="row justify-content-center">
